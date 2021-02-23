@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Tapir Lab.">
+  <title>How to Create a Task to Synchronize</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/reset.css">
+  <link rel="stylesheet" href="reveal.js/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/black.css" id="theme">
+  <style>
+    .reveal h1 { font-size: 50px; }
+    .reveal {font-size: 25px;}
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">How to Create a Task to Synchronize</h1>
+  <p class="author">Tapir Lab.</p>
+  <p class="date">December 2020</p>
+</section>
+
+<section>
+<section id="how-to-create-a-task-to-synchronize" class="title-slide slide level1">
+<h1>How to Create a Task to Synchronize</h1>
+
+</section>
+<section id="steps" class="slide level2">
+<h2>Steps:</h2>
+<ol type="1">
+<li>Log into your OpenProject account and go to the work packages page.</li>
+<li>Click, “+Create” button on the right upper side of the page.</li>
+<li>Enter a task subject. The subject should not include any “:” (colons).</li>
+<li>Specify the description of the task, then, press enter and start a new line.
+<ul>
+<li>If the first line includes only three “!” (“!!!”), it will not be synchronized!</li>
+<li>To clarify, the first line should be in the form of “!!!\n” to not to synchronize</li>
+</ul></li>
+<li>Specify the time that you want to create your task on the Calendar as below:
+<ul>
+<li>dueHour=HH:MM:SS</li>
+<li>For example, it should be “22:00:00” to create an event between 10 pm–11 pm.</li>
+</ul></li>
+<li>Tasks should be assigned to one of the members.
+<ul>
+<li>If not, ‘Not assigned to anyone’ will be written into the explanation of the event.</li>
+</ul></li>
+<li>Specify the “Finish Date” of the task.
+<ul>
+<li>If “Finish Date” is not specified, an event will be set on the creation time of the task.</li>
+</ul></li>
+<li>If you get an error, please check the whether requirements are satisfied or not.</li>
+<li>Refer to the following pages for an example of task creation.</li>
+</ol>
+</section>
+<section id="create-a-task-on-openproject" class="slide level2">
+<h2>Create a Task on OpenProject</h2>
+<figure>
+<img data-src="./figures/create1.png" alt="Create Task" /><figcaption aria-hidden="true">Create Task</figcaption>
+</figure>
+</section>
+<section id="fill-in-the-details-of-the-task" class="slide level2">
+<h2>Fill in the Details of the Task</h2>
+<figure>
+<img data-src="./figures/specify_details_of_task_cropped.png" alt="Details of Task" /><figcaption aria-hidden="true">Details of Task</figcaption>
+</figure>
+</section>
+<section id="an-example-task-after-creation" class="slide level2">
+<h2>An Example Task After Creation</h2>
+<figure>
+<img data-src="./figures/created_task1.png" alt="Created Task" /><figcaption aria-hidden="true">Created Task</figcaption>
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@4.1.0//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@4.1.0//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'cube', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

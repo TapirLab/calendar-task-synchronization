@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Tapir Lab.">
+  <title>Automation of Calendar Sync.</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/reset.css">
+  <link rel="stylesheet" href="reveal.js/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/black.css" id="theme">
+  <style>
+    .reveal h1 { font-size: 50px; }
+    .reveal {font-size: 25px;}
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Automation of Calendar Sync.</h1>
+  <p class="author">Tapir Lab.</p>
+  <p class="date">December 2020</p>
+</section>
+
+<section>
+<section id="automation-on-windows" class="title-slide slide level1">
+<h1>Automation on Windows</h1>
+
+</section>
+<section id="steps" class="slide level2">
+<h2>Steps:</h2>
+<ol type="1">
+<li>Click start and type <strong>Task Scheduler</strong> and run <strong>Task Scheduler</strong>,</li>
+<li>Go to <strong>Action &gt; Import Task…</strong> and import <strong>Synchronize.xml</strong>,</li>
+<li>Go to the <strong>Actions</strong> tab, select the listed action, and click the edit button on the bottom,</li>
+<li>Click browse and select the <strong>run_main.vbs</strong>,</li>
+<li>Then copy the full path of <strong>run_main.vbs</strong> and paste it to <strong>Start in (optional)</strong> section,</li>
+<li>Click <strong>ok</strong> and, run the task manually until you configure it correctly.</li>
+</ol>
+</section>
+<section id="if-import-doesnt-work" class="slide level2">
+<h2>If Import Doesn’t Work</h2>
+<ol type="1">
+<li>Click start and type <strong>Task Scheduler</strong> and run <strong>Task Scheduler</strong>,</li>
+<li>Go to <strong>Action</strong> tab and click on <strong>Create Task…</strong>,</li>
+<li>In the <strong>General</strong> tab, give a name to your task and enable <strong>Run with highest privileges</strong>,</li>
+<li>In the <strong>Trigger</strong> tab, click <strong>New…</strong> and choose the appropriate trigger for you,
+<ul>
+<li><strong>Repeat Task Every:</strong> option should be configured to run code periodically.</li>
+<li><strong>for a duration of:</strong> can be configured to <strong>Indefinitely</strong> to run while your computer is on.</li>
+</ul></li>
+<li>In <strong>Actions</strong> tab, click <strong>New…</strong> and choose <strong>Start a Program</strong> as action,
+<ul>
+<li><strong>Browse</strong> to where <strong>run_main.vbs</strong> file is located and choose <strong>run_main.vbs</strong> to execute batch in background.</li>
+<li>Give path of the repository to <strong>Start in (optional):</strong> in order to correctly set paths when the script is executed.</li>
+</ul></li>
+<li>Choose appropriate <strong>conditions</strong> and <strong>setting</strong> for you.</li>
+<li>Save by clicking <strong>OK</strong> and test your task by running on demand.</li>
+<li>For more information: <a href="https://docs.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page">Microsoft Task Scheduler</a></li>
+</ol>
+</section></section>
+<section>
+<section id="automation-on-linux" class="title-slide slide level1">
+<h1>Automation on Linux</h1>
+
+</section>
+<section id="steps-1" class="slide level2">
+<h2>Steps:</h2>
+<ol type="1">
+<li>Install crontab if you don’t have it,</li>
+<li>Go to <strong>automation_of_sync</strong> folder,</li>
+<li>Change the paths in both <strong>synchronization.sh</strong> and <strong>example_crontab.txt</strong>,</li>
+<li><strong>example_crontab.txt</strong> can be directly imported but it overwrites existing. Be careful!
+<ul>
+<li>Backup your existing <code>crontab</code> by <code>crontab -l &gt;&gt; backup.txt</code></li>
+</ul></li>
+<li>Execute the following command in the <strong>atuomation_of_sync</strong> folder to add the task,
+<ul>
+<li><code>crontab example_crontab.txt</code>,</li>
+<li>Check whether it is imported or not by <code>crontab -l</code>,</li>
+</ul></li>
+<li>Do not forget to update and check paths!</li>
+<li>Default <code>crontab</code> entry executes <code>main.py</code> at every 10 minutes.</li>
+<li>After each execution it adds output to the <strong>test.log</strong> file in the main directory.</li>
+<li><strong>Note:</strong> <code>synchronization.sh</code> may require permission to execution.
+<ul>
+<li><code>sudo chmod +x synchronization.sh</code> provides required permission.</li>
+</ul></li>
+</ol>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@4.1.0//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@4.1.0//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'cube', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
