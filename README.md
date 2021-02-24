@@ -1,4 +1,4 @@
-# Google Calendar Task Synchronization Script for Open Project
+# Google Calendar Task Synchronization Script for OpenProject
 ![Tapir Lab.](http://tapirlab.com/wp-content/uploads/2020/10/tapir_logo.png)
 Project management is an essential part of every research laboratory, institution, and company. However, some of the current open source solutions, such as OpenProject, lack of direct synchronization with common calendars. That means users of these open source solutions have to check each and every update on the platform itself. This kind of drawbacks eventually leads to inefficient and inadequate project management. With this repository, Tapir Lab. enables OpenProject users to synchronize their "tasks" with Google Calendar. This feature is requested by the community and its current status can be seen on the [link](https://community.openproject.com/projects/openproject/work_packages/22861/activity). Detailed explanation and examples can be seen below.   
 ## Description
